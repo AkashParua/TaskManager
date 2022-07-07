@@ -59,3 +59,10 @@ app.post('/tasks/:id/add',async (req,res)=>{
     await Post.create({Author:AuthorId,TaskName:title,TaskDetail:description,Priority:priority},(err,Post)=>{console.log(Post)})
     res.redirect(`/tasks/${AuthorId}`)
 })  
+app.get('/tasks/:userId/delete/:postId',async(req,res)=>{
+    var userid = req.params.userId
+    var postid = req.params.postId
+    await Post.findByIdAndDelete(postid)
+    res.redirect(`/tasks/${userid}`)
+
+})

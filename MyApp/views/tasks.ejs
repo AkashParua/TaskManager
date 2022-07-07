@@ -15,10 +15,16 @@
               <button type="submit">Submit</button>
         </form>
     </div>
+    <ul>
     <% for(var i =0;i< userPosts.length ;i++) {%>
+    <li>
         <%=userPosts[i].TaskName%> <br>
         <%=userPosts[i].TaskDetail%> <br>
         <%=userPosts[i].Priority%> <br>
+        <a href="/tasks/<%=userPosts[i].Author%>/delete/<%=userPosts[i].id%>">Delete</a>
+        <a href="/tasks/<%=userPosts[i].Author%>/update/<%=userPosts[i].id%>">Update</a>
+    </li>
         <% } %>  
+    </ul>
 </body>
 </html>
