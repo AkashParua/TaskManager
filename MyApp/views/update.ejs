@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/output.css" rel="stylesheet">
     <title>Updating<%=postId%></title>
 </head>
-<body>
-    <form action="/tasks/<%=userId%>/updating/<%=postId%>" method="post">
+<body class="text-center bg-slate-800 opacity-90 bg-fixed bg-cover" style="background-image:url('/img/updating.jpg')">
+    <form class="text-3xl py-44" action="/tasks/<%=userId%>/updating/<%=postId%>" method="post">
         <input type="text" placeholder="Task Title" name="task" required> <br>
         <textarea rows="5" name="desc" placeholder="Describe Task"></textarea> <br>
          <input type="number" name="prior" placeholder="select priority" required> <br>
