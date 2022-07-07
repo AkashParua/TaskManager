@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/output.css" rel="stylesheet">
     <title>SignIn</title>
 </head>
-<body>
-    <div>
-        <form method="post" action="/newuser">
-            <input type="text" name="username" placeholder="Name"/>
-            <input type="text" name="password" placeholder="Password"/>
-            <button type="submit">SignIn</button>
-        </form>
-    </div>
+<body class="bg-fixed bg-cover text-right text-4xl" style="background-image:url('/img/signinpage.jpg')">
+        <form class="py-40 px-60" action="/signin/authenticate" method="post">
+           <input type="text" name="username" placeholder="User Name" required/> <br>
+           <input type="text" name="password" placeholder="Password" required/>   <br>
+           <button class="hover:text-yellow-400" type="submit">SignIn</button>
+        </form >
 </body>
 </html>

@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/output.css" rel="stylesheet">
     <title>Your Tasks</title>
 </head>
-<body>
-    <div>
+<body class="text-center bg-fixed bg-cover text-2xl" style="background-image:url('/img/1592902.jpg')">
+    
         <form action="/tasks/<%=AuthorId%>/add" method="post">
-             <input type="text" placeholder="Task Title" name="task">
-             <textarea rows="5" name="desc">Describe the task</textarea>
-              <input type="number" name="prior">
-              <button type="submit">Submit</button>
+             <input type="text" placeholder="Task Title" name="task" required> <br>
+             <textarea rows="5" name="desc" placeholder="Describe Task"></textarea> <br>
+              <input type="number" name="prior" placeholder="select priority" required> <br>
+              <button class="hover:text-amber-400 bg-pink-600" type="submit">Submit</button> <br>
         </form>
-    </div>
-    <ul>
+        <a class="bg-pink-600 hover:text-amber-400 text-2xl" href="/">LogOut</a>
+    <% function sorting(a,b){
+        if(a.Priority >b.Priority)
+        return -1
+        else if(a.Priority >b.Priority)
+        return 1
+        else
+        return 0
+    }
+    userPosts.sort(sorting) %> 
+   
+    <ul class="text-right">
     <% for(var i =0;i< userPosts.length ;i++) {%>
     <li>
+        <div class="px-8">
         <%=userPosts[i].TaskName%> <br>
         <%=userPosts[i].TaskDetail%> <br>
         <%=userPosts[i].Priority%> <br>
-        <a href="/tasks/<%=userPosts[i].Author%>/delete/<%=userPosts[i].id%>">Delete</a>
-        <a href="/tasks/<%=userPosts[i].Author%>/update/<%=userPosts[i].id%>">Update</a>
+        <a class="hover:text-amber-500 bg-pink-600" href="/tasks/<%=userPosts[i].Author%>/delete/<%=userPosts[i].id%>">Delete</a>
+        <a class="hover:text-amber-500 bg-pink-600" href="/tasks/<%=userPosts[i].Author%>/update/<%=userPosts[i].id%>">Update</a>
+       </div>
     </li>
         <% } %>  
     </ul>
+    
 </body>
 </html>

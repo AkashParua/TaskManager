@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link href="/css/output.css" rel="stylesheet">
+    <title>LogIn</title>
 </head>
-<body>
-    <div>
-        <form action="/login/authenticate" method="post">
-           <input type="text" name="username" placeholder="User Name"/>
-           <input type="text" name="password" placeholder="Password"/>
-           <button type="submit">Login</button>
-        </form >
-    </div>
+<body class="bg-fixed bg-cover" style="background-image:url('/img/1592900.jpg')">
+    
+        <form class="p-8 text-2xl text-center bg-slate-700 py-48 hover:opacity-80" method="post" action="/newuser">
+            <input type="text" name="username" placeholder="Name" required/> 
+            <input type="text" name="password" placeholder="Password" required/>
+            <button class="text-4xl font-extrabold text-black" type="submit">LogIn</button>
+        </form>
+
 </body>
 </html>

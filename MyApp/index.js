@@ -16,7 +16,7 @@ const Post = require(path.resolve(__dirname, './Models/Post.js'))
 const User = require(path.resolve(__dirname, './Models/User.js')) 
 mongoose.connect('mongodb://0.0.0.0/DataBase_TS',{useNewUrlParser:true})
 app.get('/',(req,res)=>{res.render('homepage')})
-app.get('/signin',(req,res)=>{res.render('signin')})
+app.get('/login',(req,res)=>{res.render('login')})
 app.post('/newuser',async (req,res)=>{
       var name =await req.body.username           //storing the hashed input for safety 
       var password = await md5(req.body.password)     //storing the hashed input for safety
@@ -26,13 +26,13 @@ app.post('/newuser',async (req,res)=>{
         res.send('The username is taken')
       }else{
       User.create({Name : name , Password : password},(error,User)=>{console.log(error)}) //empty Array will contain id of the posts
-      res.redirect('/')}
+      res.send('New User Registerd go Back to Sign In')}
       }
 )
 //note : calling another callback within async function casues error
-app.get('/login',(req,res)=>{res.render('login')})
+app.get('/signin',(req,res)=>{res.render('signin')})
 //using dynamic url to go to respective posts
-app.post('/login/authenticate',async (req,res)=>{
+app.post('/signin/authenticate',async (req,res)=>{
     var name = await req.body.username
     var password = await md5(req.body.password)
     var Users = await User.find({Name:name,Password:password})
