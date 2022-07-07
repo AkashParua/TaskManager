@@ -66,3 +66,18 @@ app.get('/tasks/:userId/delete/:postId',async(req,res)=>{
     res.redirect(`/tasks/${userid}`)
 
 })
+app.get('/tasks/:userId/update/:postId',(req,res)=>{
+    var {postId}= req.params
+    var {userId} = req.params
+    res.render('update',{postId,userId})})
+app.post('/tasks/:userId/updating/:postId',async (req,res)=>{
+    var {userId} = req.params
+    var {postId} = req.params
+    var {task} = req.body
+    var {desc} = req.body
+    var {prior} = req.body
+    console.log(req.body,task)
+    await Post.findByIdAndUpdate(postId,{TaskName:task,TaskDetail:desc,Priority:prior})
+    res.redirect(`/tasks/${userId}`)
+})
+
