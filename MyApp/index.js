@@ -26,7 +26,7 @@ app.post('/newuser',async (req,res)=>{
         res.send('The username is taken')
       }else{
       User.create({Name : name , Password : password},(error,User)=>{console.log(error)}) //empty Array will contain id of the posts
-      res.send('New User Registerd go Back to Sign In')}
+      res.redirect('/')}
       }
 )
 //note : calling another callback within async function casues error
